@@ -23,7 +23,7 @@ def detect_anomalies(df, contamination=0.05):
     expenses = df[df["Amount"] < 0].copy()
 
     if len(expenses) < 5:
-        raise ValueError(
+        raise ValueError (
             "At least 5 expense transactions are required "
             "for this prototype."
         )
