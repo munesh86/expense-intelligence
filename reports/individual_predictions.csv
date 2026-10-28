@@ -1,29 +1,29 @@
 Description,Actual Category,ML Prediction,Hybrid Prediction,ML Correct,Hybrid Correct
-Weekly Pantry Restock,Groceries,Groceries,Groceries,True,True
-Fresh Produce Market Purchase,Groceries,Groceries,Groceries,True,True
-Organic Food Staples,Groceries,Food,Groceries,False,True
-Household Provisions Receipt,Groceries,Groceries,Groceries,True,True
-Commuter Pass Top Up,Transport,Utilities,Transport,False,True
-Intercity Coach Booking,Transport,Transport,Transport,True,True
-Ride Hailing Trip Receipt,Transport,Transport,Transport,True,True
-Airport Transfer Service,Transport,Transport,Transport,True,True
-Streaming Platform Renewal,Entertainment,Entertainment,Entertainment,True,True
-Theatre Night Admission,Entertainment,Entertainment,Entertainment,True,True
-Console Game Purchase,Entertainment,Entertainment,Entertainment,True,True
-Live Performance Entry,Entertainment,Entertainment,Entertainment,True,True
-Optical Examination Charge,Healthcare,Food,Healthcare,False,True
-Diagnostic Imaging Fee,Healthcare,Healthcare,Healthcare,True,True
-Prescription Refill,Healthcare,Healthcare,Healthcare,True,True
-Specialist Consultation Bill,Healthcare,Healthcare,Healthcare,True,True
-Office Lunch Bill,Food,Utilities,Food,False,True
-Noodle Takeaway Meal,Food,Food,Food,True,True
-Home Cooked Meal Order,Food,Food,Food,True,True
-Brunch Cafe Receipt,Food,Food,Food,True,True
-Casual Wear Purchase,Shopping,Shopping,Shopping,True,True
-Home Furnishing Order,Shopping,Shopping,Shopping,True,True
-Online Accessory Order,Shopping,Shopping,Shopping,True,True
-Consumer Electronics Retailer,Shopping,Shopping,Shopping,True,True
-Fiber Internet Package,Utilities,Utilities,Utilities,True,True
-Water Supply Charges,Utilities,Utilities,Utilities,True,True
-Power Service Charge,Utilities,Utilities,Utilities,True,True
-Prepaid Phone Top Up,Utilities,Utilities,Utilities,True,True
+Nature Basket Produce Purchase,Groceries,Groceries,Groceries,True,True
+Fresh Farm Grocery Basket,Groceries,Groceries,Groceries,True,True
+Organic Vegetable Delivery Invoice,Groceries,Groceries,Groceries,True,True
+Pantry Essentials Market Receipt,Groceries,Groceries,Groceries,True,True
+City Metro Fare Deduction,Transport,Transport,Transport,True,True
+Airport Shuttle Fare Payment,Transport,Transport,Transport,True,True
+Interstate Coach Ticket Receipt,Transport,Entertainment,Entertainment,False,False
+Petrol Station Fuel Invoice,Transport,Transport,Transport,True,True
+Streaming Series Membership Fee,Entertainment,Entertainment,Entertainment,True,True
+Live Music Venue Admission,Entertainment,Entertainment,Entertainment,True,True
+Cinema Reservation Charge,Entertainment,Entertainment,Entertainment,True,True
+Arcade Token Transaction,Entertainment,Entertainment,Entertainment,True,True
+Optical Examination Invoice,Healthcare,Healthcare,Healthcare,True,True
+Prescription Refill Charge,Healthcare,Healthcare,Healthcare,True,True
+Medical Imaging Appointment,Healthcare,Healthcare,Healthcare,True,True
+Dental Care Service Receipt,Healthcare,Healthcare,Healthcare,True,True
+Bistro Dinner Receipt,Food,Food,Food,True,True
+Cafe Breakfast Transaction,Food,Food,Food,True,True
+Takeaway Noodle Order,Food,Food,Food,True,True
+Restaurant Lunch Receipt,Food,Food,Food,True,True
+Sportswear Retail Purchase,Shopping,Shopping,Shopping,True,True
+Home Furnishing Store Invoice,Shopping,Shopping,Shopping,True,True
+Smartphone Accessories Order,Shopping,Shopping,Shopping,True,True
+Online Clothing Checkout,Shopping,Shopping,Shopping,True,True
+Residential Electric Service Debit,Utilities,Utilities,Utilities,True,True
+Home Broadband Subscription Charge,Utilities,Utilities,Utilities,True,True
+Municipal Water Rate Payment,Utilities,Utilities,Utilities,True,True
+Cooking Gas Supply Invoice,Utilities,Utilities,Utilities,True,True

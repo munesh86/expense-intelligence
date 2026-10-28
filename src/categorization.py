@@ -6,8 +6,7 @@ from pathlib import Path
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.pipeline import Pipeline
-
+from sklearn.pipeline import Pipeline, FeatureUnion
 
 # Clear, common merchant/transaction terms that map reliably to a category.
 # Keep category names consistent with the labels used in the dashboard.
@@ -134,7 +133,7 @@ def predict_category(model, description):
     return "Unclassified"
 
 def train_category_model(training_file):
-    """Train a text classification model from transaction descriptions."""
+    """Train a hybrid-feature text classifier for transaction categories."""
 
     training_file = Path(training_file)
 
@@ -153,44 +152,77 @@ def train_category_model(training_file):
             f"Training CSV is missing columns: {sorted(missing_columns)}"
         )
 
+    # Clean the training data
     data = data.dropna(
         subset=["Description", "Category"]
     ).copy()
 
-    data["Description"] = data["Description"].astype(str).str.strip()
-    data["Category"] = data["Category"].astype(str).str.strip()
+    data["Description"] = (
+        data["Description"].astype(str).str.strip()
+    )
+    data["Category"] = (
+        data["Category"].astype(str).str.strip()
+    )
 
     data = data[
         (data["Description"] != "")
         & (data["Category"] != "")
     ]
 
+    # Remove exact duplicate examples
+    data = data.drop_duplicates(
+        subset=["Description", "Category"]
+    )
+
     if data.empty:
-        raise ValueError("The training dataset contains no valid rows.")
+        raise ValueError(
+            "The training dataset contains no valid rows."
+        )
 
     if data["Category"].nunique() < 2:
         raise ValueError(
             "At least two different categories are required for training."
         )
 
-    model = Pipeline([
+    # Combine word-level and character-level text features
+    text_features = FeatureUnion([
         (
-            "tfidf",
+            "word_features",
             TfidfVectorizer(
                 lowercase=True,
                 ngram_range=(1, 2),
-                strip_accents="unicode"
-            )
+                strip_accents="unicode",
+                sublinear_tf=True,
+            ),
         ),
+        (
+            "character_features",
+            TfidfVectorizer(
+                analyzer="char_wb",
+                lowercase=True,
+                ngram_range=(3, 5),
+                sublinear_tf=True,
+            ),
+        ),
+    ])
+
+    # Build the classification pipeline
+    model = Pipeline([
+        ("features", text_features),
         (
             "classifier",
             LogisticRegression(
-                max_iter=1000,
-                class_weight="balanced"
-            )
-        )
+                max_iter=2000,
+                class_weight="balanced",
+                C=2.0,
+            ),
+        ),
     ])
 
-    model.fit(data["Description"], data["Category"])
+    # Train the complete pipeline
+    model.fit(
+        data["Description"],
+        data["Category"]
+    )
 
-    return model    
+    return model

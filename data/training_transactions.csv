@@ -176,3 +176,59 @@ Electricity Meter Payment,Utilities
 Utility Service Payment,Utilities
 Prepaid Mobile Top Up,Utilities
 Internet Plan Renewal,Utilities
+Pantry Staples Restock,Groceries
+Organic Produce Order,Groceries
+Cooking Ingredients Purchase,Groceries
+Monthly Household Grocery Bill,Groceries
+Flour Rice and Pulses Payment,Groceries
+Fresh Farm Vegetables Delivery,Groceries
+Supermarket Essentials Invoice,Groceries
+Dry Fruits and Nuts Purchase,Groceries
+Office Commute Fare,Transport
+Monthly Public Transit Pass,Transport
+Daily Ride Hailing Charge,Transport
+City Transit Card Top Up,Transport
+Road Toll Deduction,Transport
+Intercity Travel Fare,Transport
+Workplace Cab Reimbursement,Transport
+Public Bus Fare Deduction,Transport
+Digital Music Plan Renewal,Entertainment
+Weekend Cinema Booking,Entertainment
+Arcade Game Credits,Entertainment
+Live Concert Entry Fee,Entertainment
+Online Gaming Membership,Entertainment
+Video Streaming Plan Charge,Entertainment
+Theatre Performance Ticket,Entertainment
+Movie Platform Subscription Fee,Entertainment
+Optician Eye Exam Fee,Healthcare
+Clinic Prescription Payment,Healthcare
+Diagnostic Screening Fee,Healthcare
+Annual Health Check Expense,Healthcare
+Medical Consultation Debit,Healthcare
+Dental Cleaning Appointment,Healthcare
+Laboratory Report Charges,Healthcare
+Medicine Delivery Payment,Healthcare
+Counter Service Meal Purchase,Food
+Family Brunch Restaurant Bill,Food
+Cafe Meal Payment,Food
+Online Lunch Order Invoice,Food
+Restaurant Combo Meal,Food
+Dinner Dining Receipt,Food
+Snack Counter Bill,Food
+Takeaway Meal Payment,Food
+Winter Apparel Invoice,Shopping
+Winter Jacket Purchase,Shopping
+Fashion Retailer Payment,Shopping
+Clothing Order Debit,Shopping
+Accessories Store Bill,Shopping
+Online Footwear Invoice,Shopping
+Household Appliance Purchase,Shopping
+Retail Merchandise Order,Shopping
+Monthly Broadband Debit,Utilities
+Electricity Auto Debit,Utilities
+Water Utility Payment,Utilities
+Prepaid Data Recharge,Utilities
+Gas Service Bill,Utilities
+WiFi Plan Charge,Utilities
+Monthly Phone Service Bill,Utilities
+Broadband Renewal Payment,Utilities

@@ -3,7 +3,7 @@ from pathlib import Path
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from sklearn.pipeline import Pipeline
+from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
@@ -19,7 +19,7 @@ from src.categorization import predict_category
 PROJECT_DIR = Path(__file__).resolve().parent
 
 TRAIN_FILE = PROJECT_DIR / "data" / "training_transactions.csv"
-TEST_FILE = PROJECT_DIR / "data" / "unseen_test_transactions.csv"
+TEST_FILE = PROJECT_DIR / "data" / "independent_test_transactions.csv"
 REPORT_DIR = PROJECT_DIR / "reports"
 
 
@@ -164,26 +164,43 @@ def main():
     y_test = test_df["Category"]
 
     # Train a classifier using only the training CSV.
-    model = Pipeline([
+        # Combine word-level and character-level text features
+    text_features = FeatureUnion([
         (
-            "tfidf",
+            "word_features",
             TfidfVectorizer(
                 lowercase=True,
                 ngram_range=(1, 2),
                 strip_accents="unicode",
+                sublinear_tf=True,
             ),
         ),
         (
-            "classifier",
-            LogisticRegression(
-                max_iter=1000,
-                class_weight="balanced",
+            "character_features",
+            TfidfVectorizer(
+                analyzer="char_wb",
+                lowercase=True,
+                ngram_range=(3, 5),
+                sublinear_tf=True,
             ),
         ),
     ])
 
-    model.fit(X_train, y_train)
+    # Use the same configuration as the training function
+    model = Pipeline([
+        ("features", text_features),
+        (
+            "classifier",
+            LogisticRegression(
+                max_iter=2000,
+                class_weight="balanced",
+                C=2.0,
+            ),
+        ),
+    ])
 
+    # Train the model
+    model.fit(X_train, y_train)
     # Evaluate the ML model alone.
     ml_predictions = model.predict(X_test)
 
